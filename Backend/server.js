@@ -5,11 +5,12 @@ const cors = require("cors");
 const app = express();
 
 const port = 3000;
-const corsOptions = {
-    origin : ['https://5.35.11.70', 'https://ereminawebsite.pro'],
- }
 
-app.use(cors(corsOptions));
+const privateKey = fs.readFileSync('/etc/ssl/private/ssl-cert-snakeoil.key', 'utf8');
+const certificate = fs.readFileSync('/etc/ssl/certs/ca-certificates.crt', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
+
+app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -48,7 +49,8 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
+const httpsServer = https.createServer(credentials, app);
 
-app.listen(port, () => {
+httpsServer.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });

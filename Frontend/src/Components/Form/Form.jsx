@@ -14,7 +14,7 @@ function Form()
         event.preventDefault();
 
         try {
-            const response = await fetch('https://5.35.11.70/send-email', { 
+            const response = await fetch('https://ereminawebsite.pro/send-email', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
