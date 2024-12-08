@@ -1,17 +1,17 @@
 version: "3.9"
 services:
   backend:
-    build: ../Backend
+    build: ./Backend
     ports:
       - "8080:8080"
     volumes:
-      - ../Backend:/app
+      - ./Backend:/app
   frontend:
-    build: ../Frontend
+    build: ./Frontend
     ports:
       - "80:80"
     volumes:
-      - ../Frontend:/app
+      - ./Frontend:/app
   nginx:
     image: nginx:alpine
     ports:
