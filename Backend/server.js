@@ -7,7 +7,7 @@ const app = express();
 const port = 8080;
 
 app.use(cors({
-    origin: ['https://ereminawebsite.pro', 'http://localhost:5173']
+    origin: 'https://ereminawebsite.pro'
 }));
 app.use(express.json());
 
