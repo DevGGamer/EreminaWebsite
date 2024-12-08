@@ -1,16 +1,20 @@
 FROM node:18-alpine as builder
-WORKDIR /somedir
-COPY package*.json ./
+WORKDIR '/app'
 
+#Copy the dependencies file
+COPY package.json .
+
+#Install dependencies
 RUN npm install
 
-
+#Copy remaining files
 COPY . .
 
-RUN npm run build
+#Build the project for production
+RUN npm run build 
 
 FROM nginx:1.16.0-alpine
 
-COPY --from=builder /somedir/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
 EXPOSE 80
