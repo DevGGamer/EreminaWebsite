@@ -1,36 +1,70 @@
 import './Form.css'
+import React, { useState } from 'react';
 
 function Form()
 {
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [email, setEmail] = useState('');
+    const [number, setNumber] = useState('');
+    const [service, setService] = useState('');
+    const [format, setFormat] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('https://5.35.11.70:3000/send-email', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ to: email, subject: "Запись на услугу", text: "test" }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json(); // Получаем данные об ошибке от сервера
+                throw new Error(errorData.error || 'Ошибка при отправке');
+            }
+
+            setName('');
+            setEmail('');
+            setService('');
+
+        } catch (error) {
+            setEmail(`Ошибка: ${error.message}`);
+        }
+    };
+
     return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <div className="form-field">
             <h1>Записаться на консультацию</h1>
             <div className="name-field">
                 <div className="field">
                     <label htmlFor="inputFirstName" className="form-label">Имя</label>
-                    <input type="text" className="form-control" id="inputAddress2" placeholder="" />
+                    <input type="text" value = {name} onChange = {(e) => setName(e.target.value)} className="form-control" id="inputAddress2" placeholder="" />
                 </div>
 
                 <div className="field">
                     <label htmlFor="inputSecondName" className="form-label">Фамилия</label>
-                    <input type="text" className="form-control" id="inputAddress2" placeholder="" />
+                    <input type="text" value = {surname} onChange = {(e) => setSurname(e.target.value)} className="form-control" id="inputAddress2" placeholder="" />
                 </div>
             </div>
 
             <div className="field">
                 <label htmlFor="inputEmail4" className="form-label">Email</label>
-                <input type="email" className="form-control" id="inputEmail4" />
+                <input type="email" value = {email} onChange = {(e) => setEmail(e.target.value)} className="form-control" id="inputEmail4" />
             </div>
 
             <div className="field">
                 <label htmlFor="inputNumber" className="form-label">Номер телефона</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="" />
+                <input type="text" value = {number} onChange = {(e) => setNumber(e.target.value)} className="form-control" id="inputAddress" placeholder="" />
             </div>
 
             <div className="field">
                 <label htmlFor="inputService" className="form-label">Услуга</label>
-                <select id="inputService" className="form-select">
+                <select id="inputService" className="form-select" onChange={(e) => setService(e.target.value)}>
                     <option>Сексолог</option>
                     <option>Гинеколог</option>
                 </select>
@@ -38,7 +72,7 @@ function Form()
 
             <div className="field">
                 <label htmlFor="inputFormat" className="form-label">Формат встречи</label>
-                <select id="inputFormat" className="form-select">
+                <select id="inputFormat" className="form-select" onChange={(e) => setFormat(e.target.value)}>
                     <option>Онлайн</option>
                     <option>Очный</option>
                 </select>

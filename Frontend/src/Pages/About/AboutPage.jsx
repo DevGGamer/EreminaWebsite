@@ -16,6 +16,7 @@ function AboutPage()
             <ReasonSection />
             <MethodicSection />
             <FeedbackSection />
+            <FormSection />
         </>
     )
 }
