@@ -17,7 +17,7 @@ function Form()
             const response = await fetch('http://localhost:8080/api/send-email', { 
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                   },
                 body: JSON.stringify({ to: email, subject: "Запись на услугу", text: "test" }),
             });

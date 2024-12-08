@@ -61,3 +61,14 @@ form {
     padding: 35px;
     width: 58%;
 }
+
+@media (max-width: 1000px)
+{
+    form {
+        flex-direction: column;
+    }
+
+    .form-description {
+        width: 100%;
+    }
+}
