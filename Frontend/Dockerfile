@@ -2,7 +2,7 @@ FROM node:10-alpine as builder
 
 # install and cache app dependencies
 COPY package.json package-lock.json ./
-RUN npm install && mkdir /react-frontend && mv ./node_modules ./react-frontend
+RUN npm install && mkdir /Frontend && mv ./node_modules ./Frontend
 
 WORKDIR /Frontend
 
