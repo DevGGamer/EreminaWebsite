@@ -1,16 +1,10 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require("cors");
-const https = require('https');
-const fs = require('node:fs');
 
 const app = express();
 
 const port = 3000;
-
-const privateKey = fs.readFileSync('/etc/ssl/certs/ssl-cert-snakeoil.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/ssl/certs/ca-certificates.crt', 'utf8');
-const credentials = {key: privateKey, cert: certificate, passphrase: "mery"};
 
 app.use(cors());
 app.use(express.json());
@@ -51,8 +45,6 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
-const httpsServer = https.createServer(credentials, app);
-
-httpsServer.listen(port, () => {
+app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
