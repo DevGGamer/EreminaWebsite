@@ -10,7 +10,7 @@ const port = 3000;
 
 const privateKey = fs.readFileSync('/etc/ssl/private/ssl-cert-snakeoil.key', 'utf8');
 const certificate = fs.readFileSync('/etc/ssl/certs/ca-certificates.crt', 'utf8');
-const credentials = {key: privateKey, cert: certificate};
+const credentials = {key: privateKey, cert: certificate, passphrase: "mery"};
 
 app.use(cors());
 app.use(express.json());
