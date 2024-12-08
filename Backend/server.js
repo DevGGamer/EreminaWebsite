@@ -6,7 +6,7 @@ const app = express();
 
 const port = 3000;
 const corsOptions = {
-    origin : ['http://5.35.11.70:3000', 'http://ereminawebsite.pro:3000'],
+    origin : ['https://5.35.11.70:3000', 'https://ereminawebsite.pro:3000'],
  }
 
 app.use(cors(corsOptions));
