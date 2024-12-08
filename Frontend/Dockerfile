@@ -4,7 +4,7 @@ FROM node:10-alpine as builder
 COPY package.json package-lock.json ./
 RUN npm install && mkdir /react-frontend && mv ./node_modules ./react-frontend
 
-WORKDIR /react-frontend
+WORKDIR /Frontend
 
 COPY . .
 
@@ -16,6 +16,6 @@ RUN npm run build
 # Production Build
 # ------------------------------------------------------
 FROM nginx:1.16.0-alpine
-COPY --from=builder /react-frontend/build /usr/share/nginx/html
+COPY --from=builder /Frontend/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
