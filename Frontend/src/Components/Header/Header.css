@@ -148,6 +148,7 @@ hr {
 
       .navigation-buttons ul {
         display: none; /* Скрываем по умолчанию */
+        padding-left: 0px
     }
     
     .navigation-buttons ul.active {
