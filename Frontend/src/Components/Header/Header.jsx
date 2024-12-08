@@ -1,5 +1,5 @@
 import './Header.css'
-import logo from '../../assets/logo.svg'
+import logo from '/logo.svg'
 import personal from '../../assets/personal.svg'
 import { Link, useLocation } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
