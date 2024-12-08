@@ -1,0 +1,23 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --card-color: #B4D3FF;
+  --button-color: #82B6FF;
+  --line-color: #8EBDFF;
+  --text-color: #000000;
+  --form-color: #9BC5FF;
+  --light-color: #CDE2FF;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "PT Sans Caption", sans-serif;
+  background-image: linear-gradient(0deg, rgba(194.00000363588333, 218.00000220537186, 251.00000023841858, 1) 0%, rgba(221.00000202655792, 234.00000125169754, 253.0000001192093, 1) 100%);
+}
+

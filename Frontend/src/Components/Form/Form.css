@@ -1,0 +1,63 @@
+form {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--form-color);
+    border-radius: 79px;
+    width: 100%;
+    margin: 0px 50px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 35px;
+}
+
+.form-field h1 {
+    font-size: 42px;
+    width: 500px;
+    margin: 0px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.field label {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.field input, select, button {
+    height: 46px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: var(--light-color);
+    font-size: 18px;
+    border: none;
+}
+
+.field button {
+    background-color: var(--button-color);
+    border-radius: 15px;
+    height: 55px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.name-field {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.form-description {
+    background-color: var(--button-color);
+    border-radius: 79px;
+    padding: 35px;
+    width: 58%;
+}

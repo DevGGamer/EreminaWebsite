@@ -1,0 +1,36 @@
+footer {
+    background-color: var(--card-color);
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    padding: 20px 35px;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+}
+
+footer a, Link {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.footer-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.social-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.social-contact h3 {
+    margin: 0px;
+}
+
+.agreement {
+    font-size: 20px;
+    color: gray;
+}

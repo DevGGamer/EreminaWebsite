@@ -1,0 +1,156 @@
+header {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    display: block;
+    width: 100%;
+    margin: 2px 0px;
+    color: var(--line-color);
+}
+
+.company {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-name {
+    width: 185px;
+    padding-bottom: 2px;
+    color: var(--text-color);
+    font-family: "Gowun Batang", serif;
+}
+
+.company-logo {
+    width: 150px;
+    height: 150px;
+}
+
+.company-name span {
+    font-size: 36px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px;
+}
+
+.navigation-buttons ul {
+    display: flex;
+    gap: 73px;
+    list-style: none;
+    margin: 0px;
+}
+
+.navigation-buttons ul li {
+    width: 220px;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-buttons ul li {
+    border-radius: 33px;
+    transition: all 0.4s ease-out;
+}
+
+.selected-page {
+    background-color: var(--button-color);
+}
+
+.shadow {
+    box-shadow: 1px 1px 4px var(--text-color);
+}
+
+.navigation-buttons ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 36px;
+}
+
+.navigation-personal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    height: 57px;
+    margin-right: 5px;
+}
+
+.booking-button {
+    width: 317px;
+    height: 100%;
+    background-color: var(--button-color);
+    border-radius: 33px;
+    font-size: 32px;
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.booking-button:hover, .personal-account:hover {
+    background-color: var(--form-color);
+}
+
+.personal-account {
+    background-color: var(--button-color);
+    border-radius: 33px;
+    padding: 5px 10px;
+}
+
+.cart-button {
+    background-color: var(--button-color);
+    border-radius: 33px;
+    padding: 5px 10px;
+}
+
+.nav-toggle {
+    display: none;
+    padding: 10px;
+    font-size: 32px;
+    background-color: var(--button-color);
+    border-radius: 33px;
+    height: 60px;
+    width: 400px;
+    cursor: pointer;
+  }
+
+@media (min-width: 1000px) and (max-width: 1440px) {
+    .navigation {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 1000px)
+  {
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+    .navigation-buttons ul{
+        display: none;
+      }
+    
+      .nav-toggle {
+        display: block;
+      }
+    
+      .active {
+        display: block;
+      }
+  }
