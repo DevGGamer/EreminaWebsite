@@ -1,21 +1,15 @@
-FROM node:10-alpine as builder
+FROM node:18-alpine as builder
+COPY package*.json ./
 
-# install and cache app dependencies
-COPY package.json package-lock.json ./
-RUN npm install && mkdir /Frontend && mv ./node_modules ./Frontend
-
-WORKDIR /Frontend
+RUN npm install
+WORKDIR /app
 
 COPY . .
 
 RUN npm run build
 
-
-
-# ------------------------------------------------------
-# Production Build
-# ------------------------------------------------------
 FROM nginx:1.16.0-alpine
-COPY --from=builder /Frontend/build /usr/share/nginx/html
+
+COPY --from=builder /app/build /usr/share/nginx/html
+
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
