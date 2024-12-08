@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.16.0-alpine
-WORKDIR /builddir
-COPY --from=builder /builddir/build /usr/share/nginx/html
+WORKDIR /app
+COPY --from=builder ./build /usr/share/nginx/html
 
 EXPOSE 80
