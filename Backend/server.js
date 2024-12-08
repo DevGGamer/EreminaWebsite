@@ -12,7 +12,7 @@ app.use(cors({
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-    host: 'sm11.hosting.reg.ru', 
+    host: 'smtp.mail.selcloud.ru', 
     port: 1127,
     secure: true, 
     auth: {
