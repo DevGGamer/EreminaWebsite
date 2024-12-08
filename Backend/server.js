@@ -6,7 +6,9 @@ const app = express();
 
 const port = 8080;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://ereminawebsite.pro'
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
