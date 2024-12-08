@@ -39,11 +39,16 @@ app.post('/api/send-email', async (req, res) => {
         const info = await transporter.sendMail(mailOptions);
 
         console.log('Сообщение отправлено:', info.messageId);
-        res.json({ message: 'Сообщение отправлено успешно' });
-
+        res.status(200).json({ message: 'Письмо успешно отправлено' });
     } catch (error) {
-        console.error('Ошибка при отправке сообщения:', error);
-        res.status(500).json({ error: 'Ошибка при отправке сообщения' });
+        console.error('Ошибка при отправке письма:', error);
+        let errorMessage = 'Произошла ошибка'; 
+        if (error.response) {
+            errorMessage = `Ошибка SMTP: ${error.response.text}`;
+        } else if (error.message) {
+            errorMessage = `Ошибка: ${error.message}`;
+        }
+        res.status(500).json({ error: errorMessage }); 
     }
 });
 

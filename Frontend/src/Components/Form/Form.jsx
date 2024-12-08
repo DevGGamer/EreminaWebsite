@@ -32,7 +32,12 @@ function Form()
             setService('');
 
         } catch (error) {
-            setEmail(`Ошибка: ${error.message}`);
+                //Handle errors from API, different from HTTP errors
+                if(error.message.startsWith("HTTP error")){
+                    alert(`Ошибка при отправке: ${error.message}`);
+                }else{
+                    alert(`Ошибка: ${error.message}`);
+                }
         }
     };
 
