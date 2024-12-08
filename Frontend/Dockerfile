@@ -1,4 +1,4 @@
-FROM node:18-alpine as react-build
+FROM node:8 as react-build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
