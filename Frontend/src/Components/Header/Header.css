@@ -141,16 +141,20 @@ hr {
         justify-content: flex-start;
         gap: 10px;
       }
-
-    .navigation-buttons ul{
-        display: none;
-      }
     
       .nav-toggle {
         display: block;
       }
+
+      .navigation-buttons ul {
+        display: none; /* Скрываем по умолчанию */
+    }
     
-      .active {
+    .navigation-buttons ul.active {
         display: block;
-      }
+    }
+    
+    .navigation-buttons ul.hidden {
+        display: none; /* Скрываем, когда hidden */
+    }
   }

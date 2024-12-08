@@ -1,4 +1,5 @@
 #app {
+  width: 100%;
   max-width: 1440px;
 }
 
@@ -19,7 +20,7 @@ main {
 @media (max-width: 1000px)
 {
     #app {
-      width: 100vw;
+      max-width: 520px;
     }
 
     main {

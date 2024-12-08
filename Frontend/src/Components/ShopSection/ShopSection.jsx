@@ -48,11 +48,6 @@ function ShopSection({titles, items, withForm = false, canBuy = false})
                             </ul>
                             </div>
                     </div>
-                    {
-                        withForm && (
-                            <Form />
-                        )
-                    }
 
                     <div className="popup-buttons">
                         {

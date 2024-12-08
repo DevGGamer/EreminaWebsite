@@ -40,8 +40,9 @@ function Header()
         };
     
         const [toggle, setToggle] = useState(false); 
-        const handleToggleClick = () => {
+        const handleToggleClick = (event) => {
             setToggle(!toggle);
+            console.log(toggle);
         }
 
     return (
@@ -59,9 +60,9 @@ function Header()
             <hr />
             <nav>
                 <div className='navigation'>
-                    <button className='nav-toggle shadow' onClick={() => handleToggleClick()}>Меню</button>
+                    <button className='nav-toggle shadow' onClick={handleToggleClick}>Меню</button>
                     <div className='navigation-buttons'>
-                        <ul className={toggle ? 'active' : ''}>
+                        <ul className={toggle ? 'active' : 'hidden'}>
                             {
                                 navItemNames.map((item, index) => {
                                 return (
