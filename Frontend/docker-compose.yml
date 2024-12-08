@@ -5,13 +5,13 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./Backend:/app
+      - ../Backend:/app
   frontend:
     build: ../Frontend
     ports:
       - "80:80"
     volumes:
-      - ./Frontend:/app
+      - ../Frontend:/app
   nginx:
     image: nginx:alpine
     ports:
