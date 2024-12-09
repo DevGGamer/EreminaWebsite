@@ -7,13 +7,13 @@ const app = express();
 const port = 8080;
 
 app.use(cors({
-    origin: ['https://ereminawebsite.pro/', 'http://ereminawebsite.pro/']
+    origin: ['https://ereminawebsite.pro/', 'http://ereminawebsite.pro/', 'http://localhost:8080']
 }));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.selcloud.ru', 
-    port: 1126,
+    port: 1127,
     secure: true, 
     auth: {
         user: '3236', 
