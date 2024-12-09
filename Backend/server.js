@@ -13,7 +13,7 @@ app.use(express.json());
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.selcloud.ru', 
-    port: 1127,
+    port: 1126,
     secure: true, 
     auth: {
         user: '3236', 
