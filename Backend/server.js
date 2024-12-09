@@ -21,6 +21,10 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+app.get('/api', async (req, res) => {
+    console.log("Hello");
+})
+
 app.post('/api/send-email', async (req, res) => {
     try {
         const { to, subject, text } = req.body;
@@ -52,6 +56,6 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-app.listen(port, 'http://90.156.156.200', () => {
+app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
