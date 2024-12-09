@@ -52,6 +52,6 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-app.listen(port, '90.156.156.200', () => {
+app.listen(port, 'https://90.156.156.200', () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
