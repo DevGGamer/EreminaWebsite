@@ -1,20 +1,20 @@
-FROM node:18-alpine as builder
-WORKDIR '/app'
+FROM node:20 as build
+WORKDIR /usr/src/app
 
-#Copy the dependencies file
-COPY package.json .
+COPY package.*json ./
 
-#Install dependencies
 RUN npm install
 
-#Copy remaining files
 COPY . .
 
-#Build the project for production
 RUN npm run build 
 
-FROM nginx:1.16.0-alpine
+FROM nginx:stable-alpine
 
-COPY --from=builder /app/dist /var/www/dist/html
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
