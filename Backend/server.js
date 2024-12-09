@@ -7,7 +7,7 @@ const app = express();
 const port = 8080;
 
 app.use(cors({
-    origin: 'https://90.156.156.200'
+    origin: 'https://ereminawebsite.pro/'
 }));
 app.use(express.json());
 
@@ -52,6 +52,6 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
+app.listen(port, '90.156.156.200', () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
