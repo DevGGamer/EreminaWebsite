@@ -22,7 +22,7 @@ function Form()
                 body: JSON.stringify({ to: email, subject: "Запись на услугу", text: "test" }),
             });
 
-            const response = await fetch('https://ereminawebsite.pro/api/send-email', { 
+            const response = await fetch('/api/send-email', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
