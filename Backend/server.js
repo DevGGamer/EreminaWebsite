@@ -1,10 +1,21 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require("cors");
+const fs = require('fs');
 
 const app = express();
 
 const port = 8080;
+
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/ereminawebsite.pro/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/ereminawebsite.pro/fullchain.pem', 'utf8');
+
+const credentials = {
+    key: privateKey,
+    cert: certificate
+  };
+
+const httpsServer = https.createServer(credentials, app);
 
 app.use(cors({
     //origin: ['https://ereminawebsite.pro/', 'http://ereminawebsite.pro/', 'http://localhost:8080']
@@ -56,6 +67,6 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
+httpsServer.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
