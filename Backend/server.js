@@ -18,9 +18,7 @@ const credentials = {
 
 const httpsServer = https.createServer(credentials, app);
 
-app.use(cors({
-    origin: ['https://ereminawebsite.pro/']
-}));
+app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
