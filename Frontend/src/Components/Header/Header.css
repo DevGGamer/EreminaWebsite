@@ -122,6 +122,7 @@ hr {
     height: 60px;
     width: 400px;
     cursor: pointer;
+    color: black;
   }
 
 @media (min-width: 1000px) and (max-width: 1440px) {
@@ -157,5 +158,13 @@ hr {
     
     .navigation-buttons ul.hidden {
         display: none; /* Скрываем, когда hidden */
+    }
+
+    .navigation-buttons ul {
+        gap: 90px;
+    }
+    
+    .navigation-buttons ul li {
+        height: 60px;
     }
   }

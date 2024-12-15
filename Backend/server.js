@@ -19,7 +19,7 @@ const credentials = {
 const httpsServer = https.createServer(credentials, app);
 
 app.use(cors({
-    //origin: ['https://ereminawebsite.pro/', 'http://ereminawebsite.pro/', 'http://localhost:8080']
+    origin: ['https://ereminawebsite.pro/']
 }));
 app.use(express.json());
 

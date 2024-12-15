@@ -36,8 +36,9 @@ function Form()
             }
 
             setName('');
+            setSurname('');
             setEmail('');
-            setService('');
+            setNumber('');
 
         } catch (error) {
                 //Handle errors from API, different from HTTP errors
